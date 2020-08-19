@@ -1,0 +1,8 @@
+{
+  "FOGTOOLS.reveal": "Reveal",
+  "FOGTOOLS.revealNotes": "Reveal all fog of war to the explored state for the selected players?",
+  "FOGTOOLS.reset": "Reset",
+  "FOGTOOLS.resetNotes": "Reset all fog of war exploration for the selected players?",
+  "FOGTOOLS.players": "Players",
+  "FOGTOOLS.all": "All"
+}

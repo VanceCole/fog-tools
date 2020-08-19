@@ -1,0 +1,14 @@
+<form id="fog-tools-reset">
+  <p class="notes">{{localize 'FOGTOOLS.resetNotes'}}</p>
+  <div class="form-group">
+    <label for="players">{{localize 'FOGTOOLS.players'}}</label>
+    <select name="players">
+      <option value="all" selected>{{localize 'FOGTOOLS.all'}}</option>
+      {{#each players}}
+        {{#unless this.isGM }}
+        <option value="{{ this.id }}">{{ this.charname }} ({{ this.name }})</option>
+        {{/unless}}
+      {{/each}}
+    </select>
+  </div>
+</form>
