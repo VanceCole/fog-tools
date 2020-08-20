@@ -8,6 +8,7 @@ A module for [FoundryVTT](https://foundryvtt.com) that adds tools to reset and r
 
 ## Limitations
 - Players must be connected when used
+- Does not update GM preview vision when revealing fog
 
 ## Bugs and Feature Requests
 Please ping me on discord @vance#1935
