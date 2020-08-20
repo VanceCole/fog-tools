@@ -1,5 +1,5 @@
 # Fog Tools
-A module for [FoundryVTT](https://foundryvtt.com) that lets adds tools to reset and reveal dynamic vision for all or individual players.
+A module for [FoundryVTT](https://foundryvtt.com) that adds tools to reset and reveal dynamic vision for all or individual players.
 
 ## Features
 - Replaces default "Reset Fog" button with an improved version that allows you to reset for individual or all players.

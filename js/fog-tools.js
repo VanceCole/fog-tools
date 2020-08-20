@@ -79,14 +79,15 @@ function dispatchReveal(player) {
  */
 function dispatchReset(user) {
   console.log(user);
-  if (user === 'all') user = null;
   // Requests individual user to reset fog exploration
-  SocketInterface.dispatch("modifyDocument", {
+  let options = {
     type: "FogExploration",
     action: "delete",
-    data: {user, scene: canvas.scene.id},
+    data: { scene: canvas.scene.id },
     options: { reset: true }
-  })
+  };
+  if (user !== 'all') options.data.user = user;
+  SocketInterface.dispatch("modifyDocument", options);
 }
 
 /*
@@ -95,6 +96,7 @@ function dispatchReset(user) {
 function handleReveal(data) {
   console.log(data);
   if(['all', game.user.id].includes(data.player)) {
+    console.log(`Fog Tools | Revealing fog for: ${data.player}`);
     revealFog();
   }
 }
@@ -102,9 +104,9 @@ function handleReveal(data) {
 /*
 * Reveals all fog of war to explored state
 */
-function revealFog() {
+async function revealFog() {
   // Set desired level of opacity for revealed areas
-  const opacity = 0x999999;
+  const opacity = canvas.sight._configureChannels().explored.hex;
 
   // Get fog obj
   const fog = canvas.sight.fog;
@@ -128,4 +130,6 @@ function revealFog() {
   // Swap the staging texture to the rendered texture
   fog.rendered.texture.destroy(true);
   fog.rendered.texture = revealed;
+
+  canvas.sight.saveFog();
 }
